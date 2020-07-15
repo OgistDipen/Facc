@@ -227,7 +227,7 @@ credentials: <br />
    php artisan migrate:fresh <br /><br />
 
    Now go to the localhost:8000 and backend will be up and running. <br />
-   Frontend will be up and running on localhost:3000 <br />
+   Frontend will be up and running on localhost:81 <br />
 
     <br />
     <hr />
