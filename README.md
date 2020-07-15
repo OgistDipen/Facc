@@ -114,6 +114,12 @@ Your frontend should be running on your localhost:3000.
 <h2>Docker instructions </h2>
 <br />
 
+Prerequisites:
+
+installed Docker<br />
+installed composer (PHP dependency manager) <br />
+<br />
+
 1. download or clone this git project
 2. Go into the server folder and create a .env file.
    Configure it according to docker-compose.yml file
