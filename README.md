@@ -10,7 +10,7 @@ installed apache\
 installed composer (php dependency manager)
 
 1. Download or clone git project.
-2. Create .env file in server folder and configure database parameters.
+2. Create .env file inside server folder and configure database parameters.
 
 this is my .env file on local machine (sharing this kind of info is fine in this situation.):
 Be sure to do this according to your configuration.
@@ -172,20 +172,26 @@ if that fails, try
 sudo docker-compose build <br />
 sudo docker-compose up -d
 
-server is running on localhost:8080 port
+server is running on localhost:8000 port
 phpmyadmin is running on localhost:8899 port
 mysql is on 4306 port
 
-4. bash into container and install dependencies:
+4. to install dependencies, go in server folder and run: composer install
 
-   to bush into container run: sudo docker exec -it php /bin/sh
+5. bash into container and fix permissions:
+
+   to bush into container, from FactoryProject folder run: sudo docker exec -it php /bin/sh
    to fix permission problems, from within bashed container run: chmod -R guo+w storage
-   to install dependencies, from within bashed container run: composer install
    to migrate database, from withing bashed container run: php artisan migrate
 
+   (Optional) - to seed database run:
    php artisan db:seed <br />
 
    If you encounter any problem, try this solution: <br />
+   <!--
+   php artisan cache:clear
+   chmod -R 777 storage/
+   composer dump-autoload -->
 
    php artisan config:clear <br />
    php artisan cache:clear <br />
@@ -195,7 +201,7 @@ mysql is on 4306 port
    php artisan migrate:refresh <br />
    php artisan db:seed <br />
 
-5. Log into phpmyadmin container
+6. Log into phpmyadmin container
 
 go to http://localhost:8899
 

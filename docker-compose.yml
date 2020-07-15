@@ -66,3 +66,10 @@ services:
       - "9000:9000"
     networks:
       - laravel
+
+  composer_installation:
+    container_name: composer_installation
+    image: composer
+    volumes:
+      - ./:/server
+    command: composer install --ignore-platform-reqs
