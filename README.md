@@ -4,12 +4,13 @@
 
 Prerequisites:
 
-installed php 7+
-installed mysql
-installed apache\
-installed composer (php dependency manager)
+installed php 7+ <br />
+installed mysql <br />
+installed apache/nginx <br />
+installed composer (php dependency manager) <br />
 
 1. Download or clone git project.
+
 2. Create .env file inside server folder and configure database parameters.
 
 this is my .env file on local machine (sharing this kind of info is fine in this situation.):
@@ -28,7 +29,7 @@ Be sure to do this according to your configuration.
         DB_PORT=3306
         DB_DATABASE=factory_schedule
         DB_USERNAME=root
-        DB_PASSWORD=mysql password on your local machine.
+        DB_PASSWORD=mysql database password on your local machine.
 
         BROADCAST_DRIVER=log
         CACHE_DRIVER=file
@@ -80,7 +81,7 @@ Be sure to do this according to your configuration.
     If any of the folders in framework folder is missing, create it mannualy.
 
 3. Within server folder, migrate database by running: php artisan migrate<br />
-   (Optional) For seed data, run:
+   (Optional) For seeding data, run:
    php artisan db:seed
    <br />
 
@@ -90,19 +91,24 @@ Start app by: <br />
 php artisan serve
 
 <br />
-<hr />
-
 Your backend should be running on your localhost:8000 now.
+
+<br />
+<hr />
 
 Frontend :
 
 1. navigate into client folder
 2. install dependencies by running: npm install
-3. Start frontend from client folder and by running: npm start
+3. Start frontend from client folder by running: npm start
+
+<br />
 
 Your frontend should be running on your localhost:3000 now.
 <br />
 <br />
+
+<hr />
 
 <h2>Docker instructions </h2>
 <br />
@@ -174,7 +180,7 @@ server is running on localhost:8000 port
 phpmyadmin is running on localhost:8899 port
 mysql is on 4306 port
 
-4. Create factory_schedule database.
+4. Steps to Create factory_schedule database:
 
 Log into phpmyadmin container
 
@@ -186,9 +192,9 @@ credentials: <br />
     phpmyadmin username: root <br />
     phpmyadmin password: secret <br />
 
-5. to install dependencies, go in server folder and run: composer install
+5. to install dependencies, go inside server folder and run: composer install
 
-6. bash into container and fix permissions:
+6. To fix laravel permissions, bash into container:
 
    to bush into container, from root folder run: sudo docker exec -it php /bin/sh
    to fix permission problems, from within bashed container run: chmod -R guo+w storage
@@ -198,22 +204,21 @@ credentials: <br />
    php artisan db:seed <br />
 
    If you encounter any problem, try this solution: <br />
-   <!--
-   php artisan cache:clear
-   chmod -R 777 storage/
-   composer dump-autoload -->
 
-   php artisan config:clear <br />
    php artisan cache:clear <br />
+   php artisan config:clear <br />
+   chmod -R 777 storage/ <br />
+   composer dump-autoload <br />
 
    and after that try again <br />
 
-   php artisan migrate:refresh <br />
-   php artisan db:seed <br />
+   php artisan migrate:fresh <br /><br />
 
-Now go to the localhost:8000 and app will be app and running. Check functionality via postman. <br />
+   Now go to the localhost:8000 and app will be app and running. <br />
 
-<br />
-<hr />
+    <br />
+    <hr />
 
-    Antonije Ljubisa
+   For any questions, please contact me on: ogistdipen@outlook.com <br />
+
+   Ogist Dipen
