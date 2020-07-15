@@ -4,14 +4,14 @@
 
 Prerequisites:
 
-installed php 7+ <br />
-installed mysql <br />
-installed apache/nginx <br />
-installed composer (php dependency manager) <br />
+installed PHP 7+ <br />
+installed MySQL <br />
+installed apache/Nginx<br />
+installed composer (PHP dependency manager) <br />
 
 1. Download or clone this git project.
 
-2. Create .env file inside server folder and configure database parameters.
+2. Create a .env file inside the server folder and configure database parameters.
 
 this is my .env file on local machine (sharing this kind of info is fine in this situation.):
 Be sure to do this according to your configuration.
@@ -65,7 +65,7 @@ Be sure to do this according to your configuration.
 
         JWT_SECRET=pAiZzVTkpTY7RSParn4mTDnFAZAGvMW3Aj1rTo0RC6NpMG2Iux61Jzr7HG1l1PbO
 
-3. navigate into server folder and run command for installing dependencies:
+3. Navigate into the server folder and run command for installing dependencies:
 
    composer install
 
@@ -80,32 +80,32 @@ Be sure to do this according to your configuration.
 
     If any of the folders in framework folder is missing, create it mannualy.
 
-3. Within server folder, migrate database by running: <br />
+3. Within the server folder, migrate the database by running: <br />
    php artisan migrate<br /><br />
 
    (Optional) For seeding data, run: <br />
    php artisan db:seed
    <br />
 
-Start backend by running next command from server folder: <br />
+Start backend by running the next command from server folder: <br />
 
 php artisan serve
 
 <br />
-Your backend should be running on your localhost:8000 now.
+Your backend should be running on your localhost:8000
 
 <br />
 <hr />
 
 Frontend :
 
-1. navigate into client folder
+1. navigate into the client folder
 2. install dependencies by running: npm install
-3. Start frontend from client folder by running: npm start
+3. Start frontend from the client folder by running: npm start
 
 <br />
 
-Your frontend should be running on your localhost:3000 now.
+Your frontend should be running on your localhost:3000.
 <br />
 <br />
 
@@ -114,8 +114,8 @@ Your frontend should be running on your localhost:3000 now.
 <h2>Docker instructions </h2>
 <br />
 
-1. download or clone git project
-2. Go into server folder and create .env file.
+1. download or clone this git project
+2. Go into the server folder and create a .env file.
    Configure it according to docker-compose.yml file
 
 My working example is as follows (yours should be the same).
@@ -169,7 +169,7 @@ My working example is as follows (yours should be the same).
 
     JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
 
-3.  go back to root folder and:
+3.  go back to the root folder and:
 
 sudo docker-compose build <br />
 sudo docker-compose up -d
@@ -177,31 +177,32 @@ sudo docker-compose up -d
 check running containers by running: <br />
 sudo docker container ps -a
 
-server is running on localhost:8000 port <br />
-phpmyadmin is running on localhost:8899 port <br />
-mysql is on 4306 port <br />
+The server is running on localhost:8000 port <br />
+PHPMyAdmin is running on localhost:8899 port <br />
+MySQL is running on 4306 port <br />
 
-4. Steps to Create factory_schedule database:
+4. Steps to create factory_schedule database:
 
-Log into phpmyadmin container
+Log into PHPMyAdmin container
 
 go to http://localhost:8899
 
 credentials: <br />
 
-    phpmyadmin server: 172.17.0.1:4306      <br />
-    phpmyadmin username: root               <br />
-    phpmyadmin password: secret             <br />
+    phpmyadmin server: 172.17.0.1:4306
+    phpmyadmin username: root
+    phpmyadmin password: secret
 
-5. to install dependencies, go inside server folder and run: composer install
+5. to install dependencies, go inside the server folder and run: <br />
+   composer install<br />
 
-6. To fix laravel permissions, we need to bash into container from our root folder:
+6. To fix laravel permissions, we need to bash into a container from our root folder:
 
-   from root folder run: sudo docker exec -it php /bin/sh <br />
-   to fix permission problems, from within bashed container run: chmod -R guo+w storage <br />
-   to migrate database, from withing bashed container run: php artisan migrate <br />
+   From the root folder run: sudo docker exec -it php /bin/sh <br />
+   To fix permission problems, from within the bashed container run: chmod -R guo+w storage <br />
+   To migrate the database, from withing the bashed container run: php artisan migrate <br />
 
-   (Optional) - to seed database run: <br />
+   (Optional) - to seed the database run: <br />
    php artisan db:seed <br /> <br />
 
    If you encounter any problem, try this solution: <br />
@@ -215,11 +216,12 @@ credentials: <br />
 
    php artisan migrate:fresh <br /><br />
 
-   Now go to the localhost:8000 and app will be app and running. <br />
+   Now go to the localhost:8000 and backend will be up and running. <br />
+   Frontend will be up and running on localhost:3000 <br />
 
     <br />
     <hr />
 
-   For any questions, please contact me on: ogistdipen@outlook.com <br />
+For any questions, please contact me on: ogistdipen@outlook.com <br />
 
-   Ogist Dipen
+Ogist Dipen
