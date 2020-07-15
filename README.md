@@ -162,25 +162,35 @@ My working example is as follows (yours should be the same).
 
     JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
 
-3.  go back to FactoryProject folder and:
-
-docker-compose build <br />
-docker-compose up -d
-
-if that fails, try
+3.  go back to root folder and:
 
 sudo docker-compose build <br />
 sudo docker-compose up -d
+
+check running containers by running:
+sudo docker container ps -a
 
 server is running on localhost:8000 port
 phpmyadmin is running on localhost:8899 port
 mysql is on 4306 port
 
-4. to install dependencies, go in server folder and run: composer install
+4. Create factory_schedule database.
 
-5. bash into container and fix permissions:
+Log into phpmyadmin container
 
-   to bush into container, from FactoryProject folder run: sudo docker exec -it php /bin/sh
+go to http://localhost:8899
+
+credentials: <br />
+
+    phpmyadmin server: 172.17.0.1:4306 <br />
+    phpmyadmin username: root <br />
+    phpmyadmin password: secret <br />
+
+5. to install dependencies, go in server folder and run: composer install
+
+6. bash into container and fix permissions:
+
+   to bush into container, from root folder run: sudo docker exec -it php /bin/sh
    to fix permission problems, from within bashed container run: chmod -R guo+w storage
    to migrate database, from withing bashed container run: php artisan migrate
 
@@ -200,18 +210,6 @@ mysql is on 4306 port
 
    php artisan migrate:refresh <br />
    php artisan db:seed <br />
-
-6. Log into phpmyadmin container
-
-go to http://localhost:8899
-
-credentials: <br />
-
-phpmyadmin server: 172.17.0.1:4306 <br />
-
-phpmyadmin username: root <br />
-
-phpmyadmin password: secret <br />
 
 Now go to the localhost:8000 and app will be app and running. Check functionality via postman. <br />
 
