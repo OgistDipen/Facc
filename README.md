@@ -9,7 +9,7 @@ installed mysql <br />
 installed apache/nginx <br />
 installed composer (php dependency manager) <br />
 
-1. Download or clone git project.
+1. Download or clone this git project.
 
 2. Create .env file inside server folder and configure database parameters.
 
@@ -80,14 +80,15 @@ Be sure to do this according to your configuration.
 
     If any of the folders in framework folder is missing, create it mannualy.
 
-3. Within server folder, migrate database by running: php artisan migrate<br />
-   (Optional) For seeding data, run:
+3. Within server folder, migrate database by running: <br />
+   php artisan migrate<br /><br />
+
+   (Optional) For seeding data, run: <br />
    php artisan db:seed
    <br />
 
-Now you should be all set up for checking out app.
+Start backend by running next command from server folder: <br />
 
-Start app by: <br />
 php artisan serve
 
 <br />
@@ -173,12 +174,12 @@ My working example is as follows (yours should be the same).
 sudo docker-compose build <br />
 sudo docker-compose up -d
 
-check running containers by running:
+check running containers by running: <br />
 sudo docker container ps -a
 
-server is running on localhost:8000 port
-phpmyadmin is running on localhost:8899 port
-mysql is on 4306 port
+server is running on localhost:8000 port <br />
+phpmyadmin is running on localhost:8899 port <br />
+mysql is on 4306 port <br />
 
 4. Steps to Create factory_schedule database:
 
@@ -188,20 +189,20 @@ go to http://localhost:8899
 
 credentials: <br />
 
-    phpmyadmin server: 172.17.0.1:4306 <br />
-    phpmyadmin username: root <br />
-    phpmyadmin password: secret <br />
+    phpmyadmin server: 172.17.0.1:4306      <br />
+    phpmyadmin username: root               <br />
+    phpmyadmin password: secret             <br />
 
 5. to install dependencies, go inside server folder and run: composer install
 
-6. To fix laravel permissions, bash into container:
+6. To fix laravel permissions, we need to bash into container from our root folder:
 
-   to bush into container, from root folder run: sudo docker exec -it php /bin/sh
-   to fix permission problems, from within bashed container run: chmod -R guo+w storage
-   to migrate database, from withing bashed container run: php artisan migrate
+   from root folder run: sudo docker exec -it php /bin/sh <br />
+   to fix permission problems, from within bashed container run: chmod -R guo+w storage <br />
+   to migrate database, from withing bashed container run: php artisan migrate <br />
 
-   (Optional) - to seed database run:
-   php artisan db:seed <br />
+   (Optional) - to seed database run: <br />
+   php artisan db:seed <br /> <br />
 
    If you encounter any problem, try this solution: <br />
 
