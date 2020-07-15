@@ -67,7 +67,11 @@ Be sure to do this according to your configuration.
 
 3. Navigate into the server folder and run command for installing dependencies:
 
-   composer install
+   composer install <br />
+   php artisan key:generate <br />
+   php artisan jwt:secret <br />
+   php artisan cache:clear <br />
+   php artisan config:clear <br />
 
 \* Note, it's necessary for you to have following folders in you laravel app(in this case server folder):
 
